@@ -13,10 +13,9 @@
 <body>
   <div class="topnav" id="myTopnav">
     <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img alt="logo" src="Logo.png" class='logo_header' />
     </div>
     <div class="main-navbar">
-
       <a href="#" class="active"><span>Accueil</span></a>
       <a href="#"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
@@ -27,7 +26,6 @@
       </a>
     </div>
   </div>
-  </div>
   <main>
     <div class="hero-section">
       <div class="hero-content">
@@ -36,11 +34,11 @@
           de jeux vidéos
         </h1>
         <p class="hero-text">
-          Vous aimez jouer ? Notre prochain évènement gaming est ouvert
-          aux réservations... Places limitées !
+          Vous aimez jouer ? <br />Notre prochain évènement gaming <br />est ouvert
+          aux réservations... <br />Places limitées !
         </p>
         <button class="btn-signup modal-btn">
-          je m'inscris
+          Je m'inscris
         </button>
       </div>
       <div class="hero-img">
@@ -50,35 +48,39 @@
         je m'inscris
       </button>
     </div>
-
     <div class="bground">
       <div class="content">
         <span class="close" id="btn_close"></span>
         <div class="modal-body">
-          <form name="reserve" action="index.html" method="get" onsubmit=validate()>
-            <div class="formData">
-              <label>Prénom</label><br>
-              <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
+          <form name="reserve" action="index.html" method="get" onsubmit="validate();">
+            <div class="formData" data-error="Le prénom doit comporter 2 caractères minimum et ne pas être vide">
+              <label for='firstName'>Prénom*</label><br>
+              <input class="text-control" type="text" id="firstName" name="user_name" minlength='2' required="required"
+                autocomplete="off" /><br>
             </div>
-            <div class="formData">
-              <label>Nom</label><br>
-              <input class="text-control" type="text" id="last" name="last" /><br>
+            <div class="formData" data-error="Le nom doit comporter 2 caractères minimum et ne pas être vide">
+              <label for="lastName">Nom*</label><br>
+              <input class="text-control" type="text" id="lastName" name="user_name" minlength='2' required="required"
+                autocomplete="off" /><br>
             </div>
-            <div class="formData">
-              <label>E-mail</label><br>
-              <input class="text-control" type="email" id="email" name="email" /><br>
+            <div class="formData" data-error="Merci d'entrer un email valide">
+              <label for="email">E-mail*</label><br>
+              <input class="text-control" type="email" id="email" name="user_email" required="required"
+                autocomplete="off" /><br>
             </div>
-            <div class="formData">
-              <label>Date de naissance</label><br>
-              <input class="text-control" type="date" id="birthdate" name="birthdate" /><br>
+            <div class="formData" data-error="Merci d'entrer votre date de naissance">
+              <label for="birthdate">Date de naissance*</label><br>
+              <input class="text-control" type="date" id="birthdate" name="user_birthdate" required="required"
+                autocomplete="off" /><br>
             </div>
-            <div class="formData">
-              <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-              <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+            <div class="formData" data-error="Merci d'entrer une valeur numérique comprise entre 1 et 99">
+              <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?*</label><br>
+              <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99"
+                required="required" autocomplete="off" />
             </div>
-            <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
-            <div class="formData">
-              <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" />
+            <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?*</p>
+            <div class="formData" data-error="Merci de selectionner un tournoi">
+              <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" checked />
               <label class="checkbox-label" for="location1">
                 <span class="checkbox-icon"></span>
                 New York</label>
@@ -103,25 +105,27 @@
                 <span class="checkbox-icon"></span>
                 Portland</label>
             </div>
-
-            <div class="formData">
-              <input class="checkbox-input" type="checkbox" id="checkbox1" checked />
-              <label class="checkbox2-label" for="checkbox1" required>
+            <div class="formData" data-error="Merci d'accepter les conditions d'utilisation.">
+              <input class="checkbox-input" type="checkbox" id="checkbox1" name="condition utilisation" checked />
+              <label class="checkbox2-label" for="checkbox1">
                 <span class="checkbox-icon"></span>
-                J'ai lu et accepté les conditions d'utilisation.
+                J'ai lu et accepté les conditions d'utilisation.*
               </label>
               <br>
-              <input class="checkbox-input" type="checkbox" id="checkbox2" />
+              <input class="checkbox-input" type="checkbox" id="checkbox2" name="prochains evenements" />
               <label class="checkbox2-label" for="checkbox2">
                 <span class="checkbox-icon"></span>
-                Je Je souhaite être prévenu des prochains évènements.
+                Je souhaite être prévenu des prochains évènements.
               </label>
               <br>
             </div>
-            <input class="btn-submit" type="submit" class="button" value="C'est parti" />
+            <input class="btn-submit button" id="btn_form_submit" type="submit" value="C'est parti" />
           </form>
         </div>
       </div>
+    </div>
+    <div class="bground_valid_form">
+      <div class="content_2">Merci ! Votre réservation a été reçue.</div>
     </div>
   </main>
   <footer>

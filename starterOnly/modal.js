@@ -42,21 +42,19 @@ textControl.forEach(text => {
   })
 })
 
-
-function validate(){
-  setTimeout(function(){modalbgvalid.style.display = "block";},5000);
-}
-
 //check form & send form
 sendForm.addEventListener('click', function(event){
   textControl.forEach(text => {
       if(text.checkValidity()==false){
         text.parentNode.dataset.errorVisible="true";
         text.parentNode.dataset.error;
+        event.preventDefault();
       }else if(text.checkValidity()==true){
         text.parentNode.dataset.errorVisible="false";
-        affiche();
-      }
+        event.preventDefault();
+        modalbgvalid.style.display = "block";
+        modalbg.style.display = "none";
+      } 
   })
   if (checkboxInput.checked == false){
     checkboxInput.parentNode.dataset.errorVisible="true";
@@ -65,7 +63,6 @@ sendForm.addEventListener('click', function(event){
     checkboxInput.parentNode.dataset.errorVisible="false";
   }
 })
-
 
 
 

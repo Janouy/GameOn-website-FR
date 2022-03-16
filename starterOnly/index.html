@@ -65,15 +65,15 @@
             </div>
             <div class="formData" data-error="Merci d'entrer un email valide">
               <label for="email">E-mail*</label><br>
-              <input class="text-control" type="email" id="email" name="user_email" required="required"
-                autocomplete="off" /><br>
+              <input class="text-control" type="email" id="email" name="user_email" required
+                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="required" autocomplete="off" /><br>
             </div>
             <div class="formData" data-error="Merci d'entrer votre date de naissance">
               <label for="birthdate">Date de naissance*</label><br>
               <input class="text-control" type="date" id="birthdate" name="user_birthdate" required="required"
                 autocomplete="off" /><br>
             </div>
-            <div class="formData" data-error="Merci d'entrer une valeur numérique comprise entre 1 et 99">
+            <div class="formData" data-error="Merci d'entrer une valeur numérique comprise entre 0 et 99">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?*</label><br>
               <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99"
                 required="required" autocomplete="off" />

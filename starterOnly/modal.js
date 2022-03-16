@@ -34,35 +34,42 @@ textControl.forEach(text => {
   text.addEventListener('input', elt =>{
     if(text.checkValidity()==false){
       text.parentNode.dataset.errorVisible="true";
-      text.parentNode.dataset.error ="Le champ n'est pas correct";
+      text.parentNode.dataset.error;
     }else if(text.checkValidity()==true){
       text.parentNode.dataset.errorVisible="false";
-      text.parentNode.dataset.error ="";
     }
   })
 })
 
 //check form & send form
 sendForm.addEventListener('click', function(event){
-  textControl.forEach(text => {
-      if(text.checkValidity()==false){
+  const myArray =[];
+  textControl.forEach(text =>{
+    myArray.push(text);
+  })
+  if(myArray.every((data) => data.checkValidity()) && checkboxInput.checked){
+    event.preventDefault();
+    modalbgvalid.style.display = "block";
+    modalbg.style.display = "none";
+    setTimeout(function() {
+      location.reload();
+    }, 5000);
+  }else{
+    textControl.forEach(text=>{
+      if(!text.checkValidity()){
         text.parentNode.dataset.errorVisible="true";
         text.parentNode.dataset.error;
-        event.preventDefault();
-      }else if(text.checkValidity()==true){
-        text.parentNode.dataset.errorVisible="false";
-        event.preventDefault();
-        modalbgvalid.style.display = "block";
-        modalbg.style.display = "none";
-      } 
-  })
-  if (checkboxInput.checked == false){
+      }
+    })
+    if(!checkboxInput.checked){
     checkboxInput.parentNode.dataset.errorVisible="true";
+    checkboxInput.parentNode.dataset.error;
     event.preventDefault();
-  }else if (checkboxInput.checked == true){
-    checkboxInput.parentNode.dataset.errorVisible="false";
+    }
   }
-})
+});
+
+
 
 
 

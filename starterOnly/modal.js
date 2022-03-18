@@ -43,11 +43,11 @@ textControl.forEach(text => {
 
 //check form & send form
 sendForm.addEventListener('click', function(event){
-  const myArray =[];
+  const dataForm =[];
   textControl.forEach(text =>{
-    myArray.push(text);
+    dataForm.push(text);
   })
-  if(myArray.every((data) => data.checkValidity()) && checkboxInput.checked){
+  if(dataForm.every((data) => data.checkValidity()) && checkboxInput.checked){
     event.preventDefault();
     modalbgvalid.style.display = "block";
     modalbg.style.display = "none";

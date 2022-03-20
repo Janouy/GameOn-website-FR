@@ -56,7 +56,7 @@ textControl.forEach(text => {
 
 //check form & send form
 sendForm.addEventListener('click', function(event){
-    let dataForm = Array.from(textControl);
+  let dataForm = Array.from(textControl);
   if(dataForm.every((data) => data.checkValidity()) && checkboxInput.checked){
     event.preventDefault();
     displayValidityMessage();

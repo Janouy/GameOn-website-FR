@@ -34,8 +34,8 @@
           de jeux vidéos
         </h1>
         <p class="hero-text">
-          Vous aimez jouer? <br />Notre prochain évènement gaming est ouvert
-          aux réservations... <br />Places limitées!
+          Vous aimez jouer&nbsp;? <br />Notre prochain évènement gaming est ouvert
+          aux réservations... <br />Places limitées&nbsp;!
         </p>
         <button class="btn-signup modal-btn">
           Je m'inscris
@@ -52,7 +52,7 @@
       <div class="content">
         <span class="close" id="btn_close"></span>
         <div class="modal-body">
-          <form name="reserve" action="index.html" method="get" onsubmit="validate();">
+          <form name="reserve">
             <div class="formData" data-error="Le prénom doit comporter 2 caractères minimum et ne pas être vide">
               <label for='firstName'>Prénom*</label><br>
               <input class="text-control" type="text" id="firstName" name="user_name" minlength='2' required="required"
@@ -78,7 +78,7 @@
               <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99"
                 required="required" autocomplete="off" />
             </div>
-            <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?*</p>
+            <p class="text-label">A quel tournoi souhaitez-vous participer cette année&nbsp;?*</p>
             <div class="formData" data-error="Merci de selectionner un tournoi">
               <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" checked />
               <label class="checkbox-label" for="location1">
@@ -125,7 +125,7 @@
       </div>
     </div>
     <div class="bground_valid_form">
-      Merci ! Votre réservation a été reçue.
+      <div class="content_valid_form">Merci ! <br />Votre réservation a été reçue.</div>
     </div>
   </main>
   <footer>

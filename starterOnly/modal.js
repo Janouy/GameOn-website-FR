@@ -29,12 +29,25 @@ closeModalBtn.addEventListener('click', function(){
   modalbg.style.display = "none";
 });
 
+// display validity text
+function displayValidityMessage(){
+  modalbgvalid.style.display = "block";
+  modalbg.style.display = "none";
+  setTimeout(function() {
+    modalbgvalid.style.display = "none";
+  }, 4000);
+}
+
+//display error-data message
+function errorData(elt){
+  elt.parentNode.dataset.errorVisible="true";
+}
+
 //check form
 textControl.forEach(text => {
   text.addEventListener('input', elt =>{
     if(text.checkValidity()==false){
-      text.parentNode.dataset.errorVisible="true";
-      text.parentNode.dataset.error;
+      errorData(text);
     }else if(text.checkValidity()==true){
       text.parentNode.dataset.errorVisible="false";
     }
@@ -43,33 +56,23 @@ textControl.forEach(text => {
 
 //check form & send form
 sendForm.addEventListener('click', function(event){
-  const dataForm =[];
-  textControl.forEach(text =>{
-    dataForm.push(text);
-  })
+    let dataForm = Array.from(textControl);
   if(dataForm.every((data) => data.checkValidity()) && checkboxInput.checked){
     event.preventDefault();
-    modalbgvalid.style.display = "block";
-    modalbg.style.display = "none";
-    setTimeout(function() {
-      location.reload();
-    }, 5000);
+    displayValidityMessage();
+    this.form.reset();
   }else{
     textControl.forEach(text=>{
       if(!text.checkValidity()){
-        text.parentNode.dataset.errorVisible="true";
-        text.parentNode.dataset.error;
+        errorData(text);
       }
     })
     if(!checkboxInput.checked){
-    checkboxInput.parentNode.dataset.errorVisible="true";
-    checkboxInput.parentNode.dataset.error;
-    event.preventDefault();
+      checkboxInput.parentNode.dataset.errorVisible="true";
+      event.preventDefault();
     }
   }
 });
-
-
 
 
 

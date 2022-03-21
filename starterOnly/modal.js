@@ -39,17 +39,29 @@ function displayValidityMessage(){
 }
 
 //display error-data message
-function errorData(elt){
+function showFieldError(elt){
   elt.parentNode.dataset.errorVisible="true";
+}
+
+//delete error-data message
+function hideFieldError(elt){
+  elt.parentNode.dataset.errorVisible="false";
 }
 
 //check form
 textControl.forEach(text => {
   text.addEventListener('input', elt =>{
     if(text.checkValidity()==false){
-      errorData(text);
+      showFieldError(text);
     }else if(text.checkValidity()==true){
-      text.parentNode.dataset.errorVisible="false";
+      hideFieldError(text);
+    }
+  })
+  checkboxInput.addEventListener("change", elt =>{
+    if(!checkboxInput.checked){
+      showFieldError(checkboxInput);
+    }else{
+      hideFieldError(checkboxInput);
     }
   })
 })
@@ -64,12 +76,15 @@ sendForm.addEventListener('click', function(event){
   }else{
     textControl.forEach(text=>{
       if(!text.checkValidity()){
-        errorData(text);
+        showFieldError(text);
       }
     })
     if(!checkboxInput.checked){
-      checkboxInput.parentNode.dataset.errorVisible="true";
+      showFieldError(checkboxInput);
       event.preventDefault();
+    }
+    if(checkboxInput.checked){
+      hideFieldError(checkboxInput);
     }
   }
 });

@@ -24,12 +24,12 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-// close modal
+// close modal: au click lélément le modal disparait
 closeModalBtn.addEventListener('click', function(){
   modalbg.style.display = "none";
 });
 
-// display validity text
+// display validity text: affichage du texte de confirmation d'envoi du formulaire et disparition de celui-ci avec setTimeout
 function displayValidityMessage(){
   modalbgvalid.style.display = "block";
   modalbg.style.display = "none";
@@ -38,17 +38,17 @@ function displayValidityMessage(){
   }, 4000);
 }
 
-//display error-data message
+//display error-data message : affichage du texte contenu dans l'argument de balise data-error et mise en forme de la cellule avec le css
 function showFieldError(elt){
   elt.parentNode.dataset.errorVisible="true";
 }
 
-//delete error-data message
+//delete error-data message : suppression de l'affichage du texte et de la mise en forme 
 function hideFieldError(elt){
   elt.parentNode.dataset.errorVisible="false";
 }
 
-//check form
+//check form : contrôle des données contenues dans le formulaire lors de l'input 
 textControl.forEach(text => {
   text.addEventListener('input', elt =>{
     if(text.checkValidity()==false){
@@ -66,7 +66,7 @@ textControl.forEach(text => {
   })
 })
 
-//check form & send form
+//check form & send form : controle des données contenues dans le formulaire lors de l'envoi
 sendForm.addEventListener('click', function(event){
   let dataForm = Array.from(textControl);
   if(dataForm.every((data) => data.checkValidity()) && checkboxInput.checked){

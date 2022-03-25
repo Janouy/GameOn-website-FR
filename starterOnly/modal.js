@@ -51,9 +51,9 @@ function hideFieldError(elt){
 //check form : contrôle des données contenues dans le formulaire lors de l'input 
 textControl.forEach(text => {
   text.addEventListener('input', elt =>{
-    if(text.checkValidity()==false){
+    if(!text.checkValidity()){
       showFieldError(text);
-    }else if(text.checkValidity()==true){
+    }else if(text.checkValidity()){
       hideFieldError(text);
     }
   })

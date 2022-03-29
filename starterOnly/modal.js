@@ -15,7 +15,7 @@ const textControl = document.querySelectorAll(".text-control");
 const closeModalBtn = document.getElementById('btn_close');
 const sendForm = document.getElementById('btn_form_submit');
 const checkboxInput= document.getElementById("checkbox1");
-
+const quantity = document.getElementById("quantity")
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -88,7 +88,3 @@ sendForm.addEventListener('click', function(event){
     }
   }
 });
-
-
-
-

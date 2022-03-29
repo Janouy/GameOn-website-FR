@@ -76,7 +76,8 @@
             <div class="formData" data-error="Merci d'entrer une valeur numérique comprise entre 0 et 99">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?*</label><br>
               <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99"
-                required="required" autocomplete="off" />
+                required="required" autocomplete="off"
+                onkeydown="javascript: return event.keyCode == 69 ? false : true" />
             </div>
             <p class="text-label">A quel tournoi souhaitez-vous participer cette année&nbsp;?*</p>
             <div class="formData" data-error="Merci de selectionner un tournoi">
